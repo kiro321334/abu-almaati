@@ -131,3 +131,17 @@ dialog[open] {
     opacity: 1 !important;
   }
 }
+.collab-marquee {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.collab-track { animation: collab-scroll 40s linear infinite; }
+.collab-marquee:hover .collab-track { animation-play-state: paused; }
+@keyframes collab-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .collab-track { animation: none; }
+  .collab-marquee { overflow-x: auto; }
+}
